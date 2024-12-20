@@ -1,0 +1,134 @@
+1.增加创建新的问卷的标题输入框
+html	25行
+注释掉h1
+增加<input type="text" placeholder="请在这里输入问卷的标题" class="new-title">
+js		512行
+textcontent改为value
+css		69行
+增加height: 50px;
+    width: 100%;
+
+js中type为text的input元素增加placeholder属性
+
+
+2.所有元素名称删除-
+例如question-styles
+questionStyles
+
+3.js属性
+参考位置js的第133行（第一种情况，其他两种同理）
+新建问卷中
+单选题选项的删除，删除后，选项的序号没有改变，比如
+A.
+B.
+C.
+删除B后
+A.
+C.
+
+做出改变：
+删除监视器deleteButton.addEventListener中
+                // 通过字符编码转换来更新下一个选项序号，删除之后要将序号还原一次
+                questionOptionNum = String.fromCharCode(questionOptionNum.charCodeAt(0) - 1);
+在监视器的末尾增加，更新所有选项的选项序号
+questionOptionNum = 'A';
+                radioBox.querySelectorAll('.optionNums').forEach((optionNum) => {
+                    optionNum.textContent = questionOptionNum;
+                    questionOptionNum = String.fromCharCode(questionOptionNum.charCodeAt(0) + 1);// 通过字符编码转换来更新下一个选项序号
+                });
+
+
+4.单选题选项的删除，删除后，设置父盒子的高度
+参考位置js的126行（第一种情况，其他两种同理）
+
+原来
+// 重新计算剩余选项的总高度，更新父盒子高度
+                let newTotalHeight = 0
+                const remainingOptions = radioBox.querySelectorAll('div')
+                remainingOptions.forEach((remainingOption) => {
+                    const rect = remainingOption.getBoundingClientRect()
+                    newTotalHeight += rect.height;
+                })
+                radioBox.style.height = (newTotalHeight - 50) + 'px'
+改
+//原radioBox高度减去要删除的选项的高度
+radioBox.style.height = (radioBox.getBoundingClientRect().height -optionToRemove.getBoundingClientRect().height) + 'px';
+
+5.对于多选题，在题目序号后加个
+参考js的45行（第一种情况，其他两种同理）
+(多选题)，(单选题)，(文本题)
+
+6.对于所有的input，用label包裹而非span
+具体参考第7，
+label的for属性原则：有单复选框就使用这两个的id
+无单复选框就使用就近的文本输入框（textinput）
+js中label标签增加for属性的方法：HTMLLabelElement.htmlFor = HTMLInputElement.id
+而不是HTMLLabelElement.for，因为for这个关键字会同步for循环，故使用htmlFor
+
+7.label，input，button的分布布局如下
+参考js的32行到141行（第一种情况，其他两种同理）
+<div class="choiceBox">
+    <div>
+        <label>1. </label>
+	<input id="inputID" type="radio" name="option">
+    	<button>增加选项</button>
+    </div>
+
+    <div>
+	<input id="inputID" type="radio" name="option">
+	<label for="inputID"> A. </label>
+	<input type="text" placeholder="请输入相关信息">
+    	<button>删除</button>
+    </div>
+</div>
+
+8.css元素第25行
+标签为button的元素增加
+button{
+    /* 使得按钮的边框不这么粗 */
+    border-width: 1px;
+    /* 使得鼠标移动到按钮上是手指状态 */
+    cursor: pointer;
+}
+
+9.css元素第12行
+所有元素增加
+*{
+    /* 使得网页自带的文本不可被用户选中 */
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+10.js元素第32行（第一种情况，其他两种同理）
+问题盒子增加css属性，增加内外边距，提高观感
+	radio.style.paddingTop = '5px';
+        radio.style.paddingLeft = '5px';
+        radio.style.marginTop = '5px';
+
+11.js元素第69行（单复选题的问题选项）
+增加css属性，加内边距，提高观感
+使得一行问题选项的展示方式为flex，是为了解决原本问题选项display为inline的情况下不能设置label的长宽
+不能设置长宽，inline的label的长宽是根据大写字母的大小自动改变的，就会导致每个问题凹凸不平的情况
+因此使用flex
+	newOption.style.marginTop = '5px';
+         newOption.style.display = 'flex';
+
+同时增加问题选项label的宽度（大写字母都小于26px）
+js元素第87行（第一种情况，其他两种同理）
+optionNum.style.width = '26px';
+
+12.css属性第88行，对于class=newTitle的处理
+增加了
+.creating .newTitle{
+    background-color: rgb(204, 255, 204);
+    font-size: 1.5em;
+}
+
+.creating .newTitle:focus{
+    /* 当用户选中input时变颜色 */
+    background-color: rgb(255, 255, 204);
+}
+
+13.

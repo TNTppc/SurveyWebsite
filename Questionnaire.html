@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <link rel="stylesheet" href="Questionnaire.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>问卷调查</title>
+</head>
+<body>
+    <nav class="navigation">
+        <img src="questionMark.png" alt="questionMark">
+        <h1>问卷管理</h1>
+        <div class="myQuestionnaire">
+            <h2>我的问卷</h2>
+        </div>
+    </nav>
+    <!--首页-->
+    <div class="home">
+        <div class="createQuestionnaire">
+            <h1>+新建问卷</h1>
+        </div>
+    </div>
+
+
+    <div class="creating">
+        <label for="creatingInput">
+            <input type="text" id="creatingInput" placeholder="请在这里输入问卷的标题" class="newTitle">
+        </label>
+        <hr>
+        <div class="addQuestion">
+            <div class="questionStyles">
+                <div class="questionStyle">
+                    <div class="questionSingle">
+                        <button>
+                            <img src="images/radio.svg" alt="questionSingle">
+                            单选题
+                        </button>
+                    </div>
+                    <div class="questionMultiple">
+                        <button>
+                            <img src="images/checkbox.svg" alt="questionMultiple">
+                            多选题
+                        </button>
+                    </div>
+                    <div class="questionText">
+                        <button>
+                            <img src="images/text.svg" alt="questionText">
+                            文本题
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="adding">
+                <h1>+添加问题</h1>
+            </div>
+        </div>
+        <hr>
+        <div class="createEnd">
+            <div class="date">问卷截止日期
+                <input type="date" name="" id="">
+            </div>
+            <div class="buttons">
+                <div class="button1">
+                    <button>
+                        保存问卷
+                    </button>
+                </div>
+                <div class="button2">
+                    <button>
+                        发布问卷
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--首页列表-->
+    <div class="myQuestionnaires">
+        <div class="myQuestionnairesNav">
+            <div><h3>问卷标题</h3></div>
+            <div><h3>创建日期</h3></div>
+            <div><h3>发布日期</h3></div>
+            <div><h3>截止日期</h3></div>
+            <div><h3>问卷状态</h3></div>
+            <div><h3>操作区域</h3></div>
+            <div class="myCreateQuestionnaire"><h3>+ 新建问卷</h3></div>
+        </div>
+        <div class="myQuestionnaireList">
+
+        </div>
+    </div>
+
+    <script src="Questionnaire.js"></script>
+</body>
+</html>

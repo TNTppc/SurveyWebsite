@@ -1,0 +1,178 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: rgb(211, 211, 211);
+}
+
+/*------------------------------------------------*/
+
+/*顶部导航栏*/
+.nav{
+    height: 100px;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    background-color: rgb(239, 164, 28);
+    color: white;
+}
+.nav img{
+    margin-left: 50px;
+    height: 50%;
+}
+.nav h1{
+    display: block;
+    margin-left: 20px;
+}
+.my-questionnaire{
+    height: 40px;
+    line-height: 40px;
+    margin-left: 50px;
+    border: 2px solid rgb(236, 136, 35);
+}
+
+/*------------------------------------------------*/
+
+/*主页----空问卷*/
+.home{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    margin: 10%;
+    box-shadow: 0 5px 5px 0px gray;
+    background-color: rgb(255, 255, 255);
+}
+.home .create-questionnaire{
+    width: 20%;
+    text-align: center;
+    border: 2px solid rgb(236, 136, 35);
+    border-radius: 5px;
+    background-color: rgb(239, 164, 28);
+    color: white;
+}
+
+/*------------------------------------------------*/
+
+/*新建问卷界面*/
+.creating{
+    display: none;
+    margin: 10%;
+    padding: 50px;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 5px 5px 0px gray;
+}
+
+.creating .new-title{
+    height: 50px;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.creating .question-style{
+    display: flex;
+    justify-content:space-around;
+    align-items: center;
+    margin-top: 20px;
+    height: 80px;
+    padding: 20px;
+    border: 1px solid gray; 
+}
+
+.question-styles{
+    display: none;
+}
+
+.creating .question-style button{
+    height: 25px;
+    width: 100px;
+}
+.creating .question-style button img{
+    height: 50%;
+}
+.creating .adding{
+    text-align: center;
+    height: 80px;
+    line-height: 80px;
+    background-color: rgb(211, 211, 211);
+    margin-bottom: 20px;
+}
+.creating hr{
+    border-width: 2px;
+    border-color: rgb(211, 211, 211);
+}
+.create-end{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+.create-end .buttons{
+    width: 140px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.choice-box{
+    height: 50px;
+    width: 80%;
+    border: 2px solid black;
+}
+
+.choice-name-box{
+    width: 80%;
+    height: 30px;
+}
+
+
+.my-questionnaires{
+    display: none;
+    background-color: rgb(211, 211, 211);
+}
+.my-questionnaires-nav{
+    margin-top: 9%;
+    margin-left: 10%;
+    margin-right: 10%;
+    display: flex;
+    justify-content: space-around;
+    color: rgb(54, 45, 154);
+}
+
+.my-questionnaire-list{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    margin-top: 1%;
+    margin-left: 10%;
+    margin-right: 10%;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 5px 5px 0px gray;
+}
+
+.my-create-questionnaire{
+
+    width: 20%;
+    text-align: center;
+    border: 2px solid rgb(236, 136, 35);
+    border-radius: 5px;
+    background-color: rgb(239, 164, 28);
+    color: white;
+}
+
+.myQuestionnaireEdit{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border: 2px solid red;
+    height: 50px;
+    width: 100%;
+}
+.my-questionnaire-list{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}

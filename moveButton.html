@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Button Manipulation</title>
+  <style>
+    #button-container {
+      width: 100px;
+      height: 100px;
+      display: flex;
+      justify-content: flex - end;
+    }
+  </style>
+</head>
+
+<body>
+    <div>
+  <div id="button-container">
+    <button id="up">上移</button>
+    <button id="reuse">复用</button>
+    <button id="delete">删除</button>
+  </div>
+    </div>
+
+  <script>
+    // 获取按钮容器
+    const buttonContainer = document.getElementById('button-container');
+    // 获取上移按钮
+    const upButton = document.getElementById('up');
+
+    // 检查是否存在下移按钮
+    const checkAndAddDownButton = () => {
+      const downButton = document.getElementById('down');
+      if (!downButton) {
+        // 创建下移按钮
+        const newDownButton = document.createElement('button');
+        newDownButton.textContent = '下移';
+        newDownButton.id = 'down';
+        // 将下移按钮插入到上移按钮后面
+        buttonContainer.insertBefore(newDownButton, upButton.nextSibling);
+      }
+    };
+
+    // 页面加载时检查并添加下移按钮
+    window.onload = checkAndAddDownButton;
+  </script>
+</body>
+
+</html>

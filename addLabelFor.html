@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>动态添加label的for属性示例</title>
+</head>
+
+<body>
+    <h2>文本输入框示例</h2>
+    <div id="text-input-container"></div>
+    <h2>复选框示例</h2>
+    <div id="checkbox-container"></div>
+
+    <script>
+        // 1. 文本输入框相关操作
+        const textInputContainer = document.getElementById('text-input-container');
+
+        // 创建input元素
+        const textInput = document.createElement('input');
+        textInput.type = 'text';
+        textInput.id = 'username';
+
+        // 创建label元素
+        const textLabel = document.createElement('label');
+        textLabel.textContent = '请输入用户名';
+
+        // 通过JavaScript为label添加for属性，关联对应的input元素
+        textLabel.for = textInput.id;
+
+        // 将input和label添加到容器元素中
+        textInputContainer.appendChild(textInput);
+        textInputContainer.appendChild(textLabel);
+
+        // 2. 复选框相关操作
+        const checkboxContainer = document.getElementById('checkbox-container');
+
+        // 创建checkbox元素
+        const checkbox = document.createElement('input');
+        checkbox.type = 'checkbox';
+        checkbox.id = 'isAgree';
+
+        // 创建label元素
+        const checkboxLabel = document.createElement('label');
+        checkboxLabel.textContent = '我同意协议';
+
+        // 为checkbox的label添加for属性
+        checkboxLabel.htmlFor = checkbox.id;
+
+        // 将checkbox和label添加到容器元素中
+        checkboxContainer.appendChild(checkbox);
+        checkboxContainer.appendChild(checkboxLabel);
+    </script>
+</body>
+
+</html>
